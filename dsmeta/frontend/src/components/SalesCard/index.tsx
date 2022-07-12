@@ -1,25 +1,34 @@
+import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import NotificationButton from "../NotificationButton";
 import "./styles.css";
 
 function SalesCard() {
+  const min = new Date(new Date().setDate(new Date().getDate() - 365));
+  const max = new Date();
+
+  const [minDate, setMinDate] = useState(min);
+  const [maxDate, setMaxDate] = useState(max);
+
   return (
     <div className="dsmeta-card">
       <h2 className="dsmeta-sales-title">Vendas</h2>
+
       <div>
         <div className="dsmeta-form-control-container">
           <DatePicker
-            selected={new Date()}
-            onChange={(date: Date) => {}}
+            selected={minDate}
+            onChange={(date: Date) => setMinDate(date)}
             className="dsmeta-form-control"
             dateFormat="dd/MM/yyyy"
           />
         </div>
+
         <div className="dsmeta-form-control-container">
           <DatePicker
-            selected={new Date()}
-            onChange={(date: Date) => {}}
+            selected={maxDate}
+            onChange={(date: Date) => setMaxDate(date)}
             className="dsmeta-form-control"
             dateFormat="dd/MM/yyyy"
           />
@@ -39,6 +48,7 @@ function SalesCard() {
               <th>Notificar</th>
             </tr>
           </thead>
+
           <tbody>
             <tr>
               <td className="show992">#341</td>
@@ -53,6 +63,7 @@ function SalesCard() {
                 </div>
               </td>
             </tr>
+
             <tr>
               <td className="show992">#341</td>
               <td className="show576">08/07/2022</td>
@@ -66,6 +77,7 @@ function SalesCard() {
                 </div>
               </td>
             </tr>
+
             <tr>
               <td className="show992">#341</td>
               <td className="show576">08/07/2022</td>
