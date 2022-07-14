@@ -1,2 +1,0 @@
-INDEX VERSION 1.131+C:\Users\012963631\Documents\Spring React\.metadata\.plugins\org.eclipse.jdt.core
-3994697582.index
